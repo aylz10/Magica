@@ -135,6 +135,14 @@ public final class MainActivity extends Activity {
             binding.install.setEnabled(false);
             adbRoot();
         });
+        
+        binding.command.setOnClickListener(v -> {
+            var command = binding.commandInput.getText().toString();
+            if (!command.isEmpty()) {
+                cmd(command);
+            }
+        });
+        
         setContentView(rootView);
         console.add(getString(R.string.start_service, Boolean.toString(bind())));
     }
